@@ -22,8 +22,7 @@ class QuestionTextState extends State<QuestionText>
         duration: new Duration(milliseconds: 500), vsync: this);
     _fontSizeAnimation = new CurvedAnimation(
         parent: _fontSizeAnimationController,
-        curve:
-            Curves.bounceInOut); // animate values from 0.0, 0.1, 0.2, ... 1.0
+        curve: Curves.linear); // animate values from 0.0, 0.1, 0.2, ... 1.0
     _fontSizeAnimation.addListener(() => this.setState(
         () {})); // on every frame rebuild our widget with the new value
     _fontSizeAnimationController.forward(); // start animating
