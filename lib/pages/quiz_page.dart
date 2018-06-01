@@ -48,12 +48,20 @@ class QuizPageState extends State<QuizPage> {
         new Column(
           children: <Widget>[
             new AnswerButton(true, () => handleAnswer(true)),
-            new QuestionText("Dart is awesome!", 1),
+            new QuestionText(questionText, questionNumber),
             new AnswerButton(false, () => handleAnswer(false)),
           ],
         ),
         overlayShouldBeVisible == true
-            ? new CorrectWrongOverlay(isCorrect)
+            ? new CorrectWrongOverlay(isCorrect, () {
+                print("tapped overlay");
+                currentQuestion = quiz.nextQuestion;
+                setState(() {
+                  overlayShouldBeVisible = false;
+                  questionText = currentQuestion.question;
+                  questionNumber = quiz.questionNumber;
+                });
+              })
             : new Container()
       ],
     );

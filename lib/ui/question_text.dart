@@ -29,6 +29,15 @@ class QuestionTextState extends State<QuestionText>
   }
 
   @override
+  void didUpdateWidget(QuestionText oldWidget) {
+    if (oldWidget._question != widget._question) {
+      _fontSizeAnimationController.reset();
+      _fontSizeAnimationController.forward();
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return new Material(
         child: new Padding(
