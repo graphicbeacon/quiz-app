@@ -21,7 +21,7 @@ class CorrectWrongOverlayState extends State<CorrectWrongOverlay>
     _iconAnimationController = new AnimationController(
         duration: new Duration(seconds: 2), vsync: this);
     _iconAnimation = new CurvedAnimation(
-        parent: _iconAnimationController, curve: Curves.elasticIn);
+        parent: _iconAnimationController, curve: Curves.linear);
     _iconAnimation.addListener(() => this.setState(() {}));
     _iconAnimationController.forward(); // begin
   }
